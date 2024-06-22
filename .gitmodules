@@ -6,3 +6,7 @@
 	path = Frontend
 	url = https://github.com/BBDElectronicStore/Frontend.git
 	branch = main
+[submodule "Consumer"]
+	path = Consumer
+	url = https://github.com/BBDElectronicStore/Consumer.git
+	branches = main
