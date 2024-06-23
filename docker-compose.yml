@@ -19,7 +19,11 @@ services:
     environment:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-    entrypoint: [ "sh", "-c", "aws --region=us-west-2 --endpoint=http://elasticmq:9324 sqs create-queue --queue-name=dev" ]
+    entrypoint: >
+      sh -c "
+      aws --region=us-west-2 --endpoint=http://elasticmq:9324 sqs create-queue --queue-name=dev &&
+      aws --region=us-west-2 --endpoint=http://elasticmq:9324 sqs create-queue --queue-name=error
+      "
     networks:
       - elasticmq-net
 
